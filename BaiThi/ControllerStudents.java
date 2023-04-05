@@ -35,7 +35,7 @@ public class ControllerStudents {
 
 
     public void Update() {
-        int i = 0;
+
         for (Students st : list) {
 
             try (
@@ -52,25 +52,23 @@ public class ControllerStudents {
                 pstmt.setString(3, st.getAddress());
                 pstmt.setString(4, st.getPhone());
 
-
                 int check = pstmt.executeUpdate();
                 if (check >= 1) {
-                    System.out.println("Update row " + check);
+                    System.out.println("Update row " );
                 } else {
                     System.out.println("No Update");
                 }
 
-            } catch (SQLException e) {
-                throw new RuntimeException(e);
             }
 
+            catch (SQLException e) {
+            throw new RuntimeException(e);
         }
 
-
+    }
+        list.clear();
 
     }
-
-
 
 
 }
